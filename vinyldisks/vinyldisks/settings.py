@@ -82,7 +82,7 @@ DATABASES = {
         "NAME": "vinyldisks",
         "USER": "postgres",
         "PASSWORD": "emp25dry",
-        "HOST": "192.168.11.75"
+        "HOST": "178.216.209.101"
     }
 }
 
