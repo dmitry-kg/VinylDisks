@@ -17,8 +17,8 @@ Including another URLconf
 from django.urls import path
 from .views import index, aboutus, contactus
 urlpatterns = [
-    path('', index),
-    path('aboutus/', aboutus),
-    path('contactus/', contactus),
+    path('', index, name = 'main'),
+    path('aboutus/', aboutus, name = 'aboutus'),
+    path('contactus/', contactus, name = 'contactus'),
 
 ]

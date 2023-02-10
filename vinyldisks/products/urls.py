@@ -17,6 +17,6 @@ Including another URLconf
 from django.urls import path
 from .views import products, productdescription
 urlpatterns = [
-    path('', products),
-    path('productdescription/', productdescription),
+    path('', products, name = 'products'),
+    path('productdescription/', productdescription, name = 'productsdescription'),
 ]

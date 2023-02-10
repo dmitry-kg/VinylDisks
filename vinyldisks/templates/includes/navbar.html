@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
 
-</body>
-</html>
+<nav class="navbar navbar-expand-sm bg-dark  navbar-dark container sticky-top border rounded-3">
+    <div class="container-fluid ">
+        <a class="navbar-brand" href="#">Hi-Fi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileViewCollapse">
+            <span class="navbar-toggler-icon">
+            </span>
+        </button>
+        <div class="collapse navbar-collapse " id="testdropdown">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a href="{% url 'main' %}" class="nav-link">Главная</a></li>
+                <li class="nav-item"><a href="{% url 'aboutus' %}" class="nav-link">О Нас</a></li>
+                <li class="nav-item"><a href="{% url 'contactus' %}" class="nav-link">Контакты</a></li>
+                <li class="nav-item dropdown">
+                    <a href="{% url 'products' %}" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Товары</a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="{% url 'products' %}" class="dropdown-item">Новые товары</a></li>
+                        <li> <a href="{% url 'productsdescription' %}" class="dropdown-item">Описание товаров</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex justify-content-end" >
+                    <input class="form-control" type="text" name="searchform" placeholder="Найти..">
+                    <button class="btn btn-success" type="button">Найти</button>
+            </form>
+        </div>
+    </div>
+</nav>
