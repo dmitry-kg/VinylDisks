@@ -14,19 +14,19 @@
 		<li class="nav-item"><a href="#hifi" class="nav-link bg-warning text-dark" data-bs-toggle="tab">Hi-Fi компоненты</a></li>
 	</ul>
 
-    <div class="container tab-content mt-3 bg-dark">
+    <div class="container  tab-content mt-3 ">
 
-		    <div id="vinyl" class="tab-pane active" >
-                {% for ProductsDescriptionVinyl in allvinyl %}
-                    <div class="row text-center">
+		    <div id="vinyl" class="tab-pane active " >
 
-                        <div class="col-sm-4 p-5 bg-light">
+                    <div class="row  text-center ">
+                        {% for ProductsDescriptionVinyl in allvinyl %}
+                             <div class="col-sm-4 p-5 {% cycle 'bg-light' 'bg-dark' %} {% cycle 'text-dark' 'text-light' %} ">
 
-                                    <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка {{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}
+                                    <h6 class="text-center mb-2 fw-bold h6 mt-3">Виниловая пластинка {{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}
                                     </h6>
 
                                     <img class="float-end d-block img-thumbnail m-2" src="{{ ProductsDescriptionVinyl.photo.url}}">
-                                    <p class="fs-3 fw-bold text-center">{{ ProductsDescriptionVinyl.price}} сом  / <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#vinyl_1"> Подробнее </button>
+                                    <p class="fs-3 fw-bold text-center">{{ ProductsDescriptionVinyl.price}} сом  / <button type="button" class="btn {% cycle 'btn-dark' 'btn-light' %}" data-bs-toggle="modal" data-bs-target="#vinyl_1"> Подробнее </button>
                                     </p>
 
                                     <div id="vinyl_1" class="modal mt-3 fade">
@@ -55,47 +55,48 @@
 
                                     </div>
 
-                                </div>
+                        </div>
 
 
 
-                        <div class="col-sm-4 p-5 text-light">
+<!--                        <div class="col-sm-4 p-5 text-light bg-dark">-->
 
-                                  <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка {{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}
-                                  </h6>
+<!--                                  <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка {{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}-->
+<!--                                  </h6>-->
 
-                                  <img class="float-end d-block img-thumbnail m-2" src="{{ ProductsDescriptionVinyl.photo.url}}">
-                                  <p class="fs-3 fw-bold text-center">{{ ProductsDescriptionVinyl.price}} сом  / <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#vinyl_2"> Подробнее </button>
-                                  </p>
+<!--                                  <img class="float-end d-block img-thumbnail m-2" src="{{ ProductsDescriptionVinyl.photo.url}}">-->
+<!--                                  <p class="fs-3 fw-bold text-center">{{ ProductsDescriptionVinyl.price}} сом  / <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#vinyl_2"> Подробнее </button>-->
+<!--                                  </p>-->
 
-                                  <div id="vinyl_2" class="modal mt-3 fade ">
-                                    <div class="modal-dialog ">
-                                        <div class="modal-content text-dark">
-                                            <div class="modal-header">
-                                                <h3 class="modal-title">{{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}</h3>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                            </div>
+<!--                                  <div id="vinyl_2" class="modal mt-3 fade ">-->
+<!--                                    <div class="modal-dialog ">-->
+<!--                                        <div class="modal-content text-dark">-->
+<!--                                            <div class="modal-header">-->
+<!--                                                <h3 class="modal-title">{{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}</h3>-->
+<!--                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>-->
+<!--                                            </div>-->
 
 
-                                            <div class="modal-body">
-                                                <img src="{{ ProductsDescriptionVinyl.photo.url}}" class="img-fluid">
-                                                    {{ ProductsDescriptionVinyl.description}}
-                                            </div>
+<!--                                            <div class="modal-body">-->
+<!--                                                <img src="{{ ProductsDescriptionVinyl.photo.url}}" class="img-fluid">-->
+<!--                                                    {{ ProductsDescriptionVinyl.description}}-->
+<!--                                            </div>-->
 
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-dark ">В корзину </button>
-                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>
+<!--                                            <div class="modal-footer">-->
+<!--                                                <button type="button" class="btn btn-dark ">В корзину </button>-->
+<!--                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>-->
 
-                                            </div>
-                                        </div>
-                                    </div>
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
 
-                                  </div>
+<!--                                  </div>-->
 
-                            </div>
+<!--                            </div>-->
 
+                        {% endfor %}
                     </div>
-                {% endfor %}
+
 
 
 
