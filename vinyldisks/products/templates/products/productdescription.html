@@ -19,7 +19,7 @@
 		    <div id="vinyl" class="tab-pane active" >
                 {% for ProductsDescriptionVinyl in allvinyl %}
                     <div class="row text-center">
-                        {% if forloop.counter|divisibleby:2 == 0  %}
+
                         <div class="col-sm-4 p-5 bg-light">
 
                                     <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка {{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}
@@ -57,7 +57,6 @@
 
                                 </div>
 
-                        {% else%}
 
 
                         <div class="col-sm-4 p-5 text-light">
@@ -94,7 +93,7 @@
                                   </div>
 
                             </div>
-                        {% endif%}
+
                     </div>
                 {% endfor %}
 
