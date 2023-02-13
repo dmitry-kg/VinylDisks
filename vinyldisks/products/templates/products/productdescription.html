@@ -18,250 +18,210 @@
 
 		    <div id="vinyl" class="tab-pane active" >
                 {% for ProductsDescriptionVinyl in allvinyl %}
-                <div class="row text-center">
-                    <div class="col-sm-4 p-5 bg-light">
+                    <div class="row text-center">
+                        {% if forloop.counter|divisibleby:2 == 0  %}
+                        <div class="col-sm-4 p-5 bg-light">
 
-                        <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка {{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}
-                        </h6>
+                                    <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка {{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}
+                                    </h6>
 
-                        <img class="float-end d-block img-thumbnail m-2" src="{{ ProductsDescriptionVinyl.photo.url}}">
-                        <p class="fs-3 fw-bold text-center">{{ ProductsDescriptionVinyl.price}} сом  / <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#vinyl_1"> Подробнее </button>
-                        </p>
+                                    <img class="float-end d-block img-thumbnail m-2" src="{{ ProductsDescriptionVinyl.photo.url}}">
+                                    <p class="fs-3 fw-bold text-center">{{ ProductsDescriptionVinyl.price}} сом  / <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#vinyl_1"> Подробнее </button>
+                                    </p>
 
-                        <div id="vinyl_1" class="modal mt-3 fade">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h3 class="modal-title">{{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}</h3>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    <div id="vinyl_1" class="modal mt-3 fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title">{{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}</h3>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                </div>
+
+
+                                                <div class="modal-body">
+                                                    <img src="{{ ProductsDescriptionVinyl.photo.url}}" class="img-fluid">
+                                                    <p>  {{ ProductsDescriptionVinyl.description}}
+                                                    </p>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-dark ">В корзину </button>
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
                                     </div>
 
-
-                                    <div class="modal-body">
-                                        <img src="{{ ProductsDescriptionVinyl.photo.url}}" class="img-fluid">
-                                        <p>  {{ ProductsDescriptionVinyl.description}}
-                                        </p>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-dark ">В корзину </button>
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>
-
-                                    </div>
                                 </div>
 
-                            </div>
+                        {% else%}
 
-                        </div>
 
-                    </div>
+                        <div class="col-sm-4 p-5 text-light">
 
-                    <div class="col-sm-4 p-5 text-light">
+                                  <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка {{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}
+                                  </h6>
 
-                          <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка Adele - 30 (Limited Crystal Clear Vinyl)
-                          </h6>
+                                  <img class="float-end d-block img-thumbnail m-2" src="{{ ProductsDescriptionVinyl.photo.url}}">
+                                  <p class="fs-3 fw-bold text-center">{{ ProductsDescriptionVinyl.price}} сом  / <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#vinyl_2"> Подробнее </button>
+                                  </p>
 
-                          <img class="float-end d-block img-thumbnail m-2" src="https://impult.ru/preview/r/456x456/upload/iblock/df7/df78da2903c53f0d97a8796f601060ab.jpeg">
-                          <p class="fs-3 fw-bold text-center">4 800 сом  / <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#vinyl_2"> Подробнее </button>
-                          </p>
+                                  <div id="vinyl_2" class="modal mt-3 fade ">
+                                    <div class="modal-dialog ">
+                                        <div class="modal-content text-dark">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">{{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}</h3>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
 
-                          <div id="vinyl_2" class="modal mt-3 fade ">
-                            <div class="modal-dialog ">
-                                <div class="modal-content text-dark">
-                                    <div class="modal-header">
-                                        <h3 class="modal-title">Adele - 30 (Limited Crystal Clear Vinyl)</h3>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+                                            <div class="modal-body">
+                                                <img src="{{ ProductsDescriptionVinyl.photo.url}}" class="img-fluid">
+                                                    {{ ProductsDescriptionVinyl.description}}
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-dark ">В корзину </button>
+                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>
+
+                                            </div>
+                                        </div>
                                     </div>
 
-
-                                    <div class="modal-body">
-                                        <img src="https://impult.ru/preview/r/456x456/upload/iblock/df7/df78da2903c53f0d97a8796f601060ab.jpeg" class="img-fluid">
-                                        <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                                            into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                                            Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                                            into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                                        </p>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-dark ">В корзину </button>
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                          </div>
-
-                    </div>
-
-                    <div class="col-sm-4 p-5 bg-light">
-
-                          <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка The Weeknd - After Hours,
-                            (180 Gram Black Vinyl/Gatefold)
-                          </h6>
-
-                          <img class="float-end d-block img-thumbnail m-2" src="https://impult.ru/preview/r/456x456/upload/iblock/1d0/1d057993be441c84f5f691c7f9dbd9fd.jpg">
-                          <p class="fs-3 fw-bold text-center">4 471 сом  /  <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#vinyl_3"> Подробнее </button>
-                          </p>
-                          <div id="vinyl_3" class="modal mt-3 fade">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h3 class="modal-title">Виниловая пластинка The Weeknd - After Hours, (180 Gram Black Vinyl/Gatefold)</h3>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-
-
-                                    <div class="modal-body">
-                                        <img src="https://impult.ru/preview/r/456x456/upload/iblock/1d0/1d057993be441c84f5f691c7f9dbd9fd.jpg" class="img-fluid">
-                                        <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                                            into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                                            Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                                            into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                                        </p>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-dark ">В корзину </button>
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>
-
-                                    </div>
-                                </div>
+                                  </div>
 
                             </div>
-                          </div>
+                        {% endif%}
                     </div>
-                </div>
                 {% endfor %}
 
 
-                <div class="row text-center">
-                    <div class="col-sm-4 p-5  text-light">
 
-                          <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка George Michael - Older (180 Gram Black Vinyl 2LP)
-                          </h6>
+<!--                <div class="row text-center">-->
+<!--                    <div class="col-sm-4 p-5  text-light">-->
 
-                          <img class="float-end d-block img-thumbnail m-2" src="https://impult.ru/preview/r/456x456/upload/iblock/1f3/1f38ca8bd6ccff9b274ba8fa9d979b72.JPG">
-                          <p class="fs-3 fw-bold text-center">4 050 сом  / <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#vinyl_4"> Подробнее </button>
-                          </p>
+<!--                          <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка George Michael - Older (180 Gram Black Vinyl 2LP)-->
+<!--                          </h6>-->
 
-                          <div id="vinyl_4" class="modal mt-3 fade ">
-                                <div class="modal-dialog ">
-                                    <div class="modal-content text-dark">
-                                        <div class="modal-header">
-                                            <h3 class="modal-title">George Michael - Older (180 Gram Black Vinyl 2LP)</h3>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                        </div>
+<!--                          <img class="float-end d-block img-thumbnail m-2" src="https://impult.ru/preview/r/456x456/upload/iblock/1f3/1f38ca8bd6ccff9b274ba8fa9d979b72.JPG">-->
+<!--                          <p class="fs-3 fw-bold text-center">4 050 сом  / <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#vinyl_4"> Подробнее </button>-->
+<!--                          </p>-->
 
-
-                                        <div class="modal-body">
-                                            <img src="https://impult.ru/preview/r/456x456/upload/iblock/1f3/1f38ca8bd6ccff9b274ba8fa9d979b72.JPG" class="img-fluid">
-                                            <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                                                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                                            </p>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark ">В корзину </button>
-                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                          </div>
-
-                    </div>
-
-                    <div class="col-sm-4 p-5 bg-light">
-
-                        <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка Haddaway - The Album (Limited Edition 180 White Vinyl LP)
-                        </h6>
-
-                        <img class="float-end d-block img-thumbnail m-2" src="https://impult.ru/preview/r/456x456/upload/iblock/b62/b62a7f7a38a776334c7f820b69775741.jpg">
-                        <p class="fs-3 fw-bold text-center">5 185 сом  /  <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#vinyl_5"> Подробнее </button>
-                        </p>
-
-                        <div id="vinyl_5" class="modal mt-3 fade ">
-                                <div class="modal-dialog ">
-                                    <div class="modal-content text-dark">
-                                        <div class="modal-header">
-                                            <h3 class="modal-title">Haddaway - The Album (Limited Edition 180 White Vinyl LP)</h3>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                        </div>
+<!--                          <div id="vinyl_4" class="modal mt-3 fade ">-->
+<!--                                <div class="modal-dialog ">-->
+<!--                                    <div class="modal-content text-dark">-->
+<!--                                        <div class="modal-header">-->
+<!--                                            <h3 class="modal-title">George Michael - Older (180 Gram Black Vinyl 2LP)</h3>-->
+<!--                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>-->
+<!--                                        </div>-->
 
 
-                                        <div class="modal-body">
-                                            <img src="https://impult.ru/preview/r/456x456/upload/iblock/b62/b62a7f7a38a776334c7f820b69775741.jpg" class="img-fluid">
-                                            <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                                                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                                            </p>
-                                        </div>
+<!--                                        <div class="modal-body">-->
+<!--                                            <img src="https://impult.ru/preview/r/456x456/upload/iblock/1f3/1f38ca8bd6ccff9b274ba8fa9d979b72.JPG" class="img-fluid">-->
+<!--                                            <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,-->
+<!--                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap-->
+<!--                                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing-->
+<!--                                                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,-->
+<!--                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap-->
+<!--                                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing-->
+<!--                                            </p>-->
+<!--                                        </div>-->
 
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark ">В корзину </button>
-                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>
+<!--                                        <div class="modal-footer">-->
+<!--                                            <button type="button" class="btn btn-dark ">В корзину </button>-->
+<!--                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>-->
 
-                                        </div>
-                                    </div>
-                                </div>
-                          </div>
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                          </div>-->
 
-                    </div>
+<!--                    </div>-->
 
-                    <div class="col-sm-4 p-5 text-light">
+<!--                    <div class="col-sm-4 p-5 bg-light">-->
 
-                        <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка Madonna -  Like A Virgin (Limited Edition 180)
-                        </h6>
+<!--                        <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка Haddaway - The Album (Limited Edition 180 White Vinyl LP)-->
+<!--                        </h6>-->
 
-                        <img class="float-end d-block img-thumbnail m-2" src="https://impult.ru/preview/r/456x456/upload/iblock/b64/b64c0fac04b2f1059abc048ace059783.jpg">
-                        <p class="fs-3 fw-bold text-center">3 150 сом  /  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#vinyl_6"> Подробнее </button>
-                        </p>
+<!--                        <img class="float-end d-block img-thumbnail m-2" src="https://impult.ru/preview/r/456x456/upload/iblock/b62/b62a7f7a38a776334c7f820b69775741.jpg">-->
+<!--                        <p class="fs-3 fw-bold text-center">5 185 сом  /  <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#vinyl_5"> Подробнее </button>-->
+<!--                        </p>-->
 
-                        <div id="vinyl_6" class="modal mt-3 fade ">
-                                <div class="modal-dialog ">
-                                    <div class="modal-content text-dark">
-                                        <div class="modal-header">
-                                            <h3 class="modal-title">Madonna -  Like A Virgin (Limited Edition 180)</h3>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                        </div>
-
-
-                                        <div class="modal-body">
-                                            <img src="https://impult.ru/preview/r/456x456/upload/iblock/b64/b64c0fac04b2f1059abc048ace059783.jpg" class="img-fluid">
-                                            <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                                                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                                            </p>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark ">В корзину </button>
-                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                          </div>
+<!--                        <div id="vinyl_5" class="modal mt-3 fade ">-->
+<!--                                <div class="modal-dialog ">-->
+<!--                                    <div class="modal-content text-dark">-->
+<!--                                        <div class="modal-header">-->
+<!--                                            <h3 class="modal-title">Haddaway - The Album (Limited Edition 180 White Vinyl LP)</h3>-->
+<!--                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>-->
+<!--                                        </div>-->
 
 
-                    </div>
-                </div>
+<!--                                        <div class="modal-body">-->
+<!--                                            <img src="https://impult.ru/preview/r/456x456/upload/iblock/b62/b62a7f7a38a776334c7f820b69775741.jpg" class="img-fluid">-->
+<!--                                            <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,-->
+<!--                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap-->
+<!--                                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing-->
+<!--                                                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,-->
+<!--                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap-->
+<!--                                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="modal-footer">-->
+<!--                                            <button type="button" class="btn btn-dark ">В корзину </button>-->
+<!--                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>-->
+
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                          </div>-->
+
+<!--                    </div>-->
+
+<!--                    <div class="col-sm-4 p-5 text-light">-->
+
+<!--                        <h6 class="text-center mb-2  fw-bold h6 mt-3">Виниловая пластинка Madonna -  Like A Virgin (Limited Edition 180)-->
+<!--                        </h6>-->
+
+<!--                        <img class="float-end d-block img-thumbnail m-2" src="https://impult.ru/preview/r/456x456/upload/iblock/b64/b64c0fac04b2f1059abc048ace059783.jpg">-->
+<!--                        <p class="fs-3 fw-bold text-center">3 150 сом  /  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#vinyl_6"> Подробнее </button>-->
+<!--                        </p>-->
+
+<!--                        <div id="vinyl_6" class="modal mt-3 fade ">-->
+<!--                                <div class="modal-dialog ">-->
+<!--                                    <div class="modal-content text-dark">-->
+<!--                                        <div class="modal-header">-->
+<!--                                            <h3 class="modal-title">Madonna -  Like A Virgin (Limited Edition 180)</h3>-->
+<!--                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>-->
+<!--                                        </div>-->
+
+
+<!--                                        <div class="modal-body">-->
+<!--                                            <img src="https://impult.ru/preview/r/456x456/upload/iblock/b64/b64c0fac04b2f1059abc048ace059783.jpg" class="img-fluid">-->
+<!--                                            <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,-->
+<!--                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap-->
+<!--                                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing-->
+<!--                                                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,-->
+<!--                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap-->
+<!--                                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="modal-footer">-->
+<!--                                            <button type="button" class="btn btn-dark ">В корзину </button>-->
+<!--                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Закрыть </button>-->
+
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                          </div>-->
+
+
+<!--                    </div>-->
+<!--                </div>-->
 
 
 

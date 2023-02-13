@@ -1,6 +1,7 @@
 from django.db import models
 import uuid
 from datetime import datetime
+from ckeditor.fields import RichTextField
 
 class ProductsDescriptionVinyl(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4, null=False, blank=False, editable=False)
@@ -8,7 +9,7 @@ class ProductsDescriptionVinyl(models.Model):
     album_name = models.CharField(max_length=255, null=False, blank=False)
     photo = models.ImageField(upload_to='photos/vinyls/%Y/%m/%d')
     price = models.IntegerField()
-    description = models.TextField()
+    description = RichTextField()
     create_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
