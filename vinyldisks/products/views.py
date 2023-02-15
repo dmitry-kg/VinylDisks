@@ -7,17 +7,24 @@ def products(request):
     return render(request, 'products/products.html')
 
 def productdescription(request):
+    new_vinyls = ProductsDescriptionVinyl.objects.order_by('-create_date')
     allvinyl = ProductsDescriptionVinyl.objects.all()  # select * from cars;
 
     context = {
-        'allvinyl': allvinyl
+        'allvinyl': allvinyl,
+        'new_vinyls': new_vinyls,
 
     }
 
     return render(request, 'products/productdescription.html', context)
 
 
-# def allvinyl(request):
-#     allvinyl = ProductsDescriptionVinyl.objects.all() #select * from cars;
-#
-#     context
+def productdescriptionhifi(request):
+    allhifi = ProductsDescriptionHiFi.objects.all()  # select * from cars;
+
+    context = {
+        'allhifi': allhifi
+
+    }
+
+    return render(request, 'products/productdescription.html', context)

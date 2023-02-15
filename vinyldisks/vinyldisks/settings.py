@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'website',
     'products',
     'ckeditor',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [

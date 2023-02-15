@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 
 
@@ -19,14 +20,14 @@
 		    <div id="vinyl" class="tab-pane active " >
 
                     <div class="row  col-sm-12 text-center ">
-                        {% for ProductsDescriptionVinyl in allvinyl %}
+                        {% for ProductsDescriptionVinyl in new_vinyls %}
                              <div class="col-sm-4 p-5 {% cycle 'bg-light' 'bg-dark' %} {% cycle 'text-dark' 'text-light' %} ">
 
                                     <h6 class="text-center mb-2 fw-bold h6 mt-3">Виниловая пластинка {{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}
                                     </h6>
 
                                     <img class="float-end d-block img-thumbnail m-2" src="{{ ProductsDescriptionVinyl.photo.url}}">
-                                    <p class="fs-3 fw-bold text-center">{{ ProductsDescriptionVinyl.price}} сом  / <button type="button" class="btn {% cycle 'btn-dark' 'btn-light' %}" data-bs-toggle="modal" data-bs-target="#vinyl_{{forloop.counter}}"> Подробнее </button>
+                                    <p class="fs-3 fw-bold text-center">{{ ProductsDescriptionVinyl.price | intcomma}} сом  / <button type="button" class="btn {% cycle 'btn-dark' 'btn-light' %}" data-bs-toggle="modal" data-bs-target="#vinyl_{{forloop.counter}}"> Подробнее </button>
                                     </p>
 
                                     <div id="vinyl_{{forloop.counter}}" class="modal mt-3 fade ">
@@ -36,15 +37,20 @@
                                             <div class="modal-content ">
 
                                                 <div class="modal-header">
+
                                                     <h3 class="modal-title">{{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}</h3>
+
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                 </div>
 
 
                                                 <div class="modal-body">
+
                                                     <img src="{{ ProductsDescriptionVinyl.photo.url}}" class="img-fluid">
+                                                    {% autoescape off %}
                                                     <p>  {{ ProductsDescriptionVinyl.description}}
                                                     </p>
+                                                    {% endautoescape %}
                                                 </div>
 
                                                 <div class="modal-footer">
@@ -86,7 +92,7 @@
 
     <div class="container tab-content bg-info">
 
-        <div id="hifi" class="tab-pane" >
+       <div id="hifi" class="tab-pane" >
 
             <table class="table table-striped table-bordered text-center table-light table-hover ">
                 <thead class="table-primary fs-5">
@@ -98,29 +104,22 @@
 
                     </tr>
                 </thead>
-                <tbody class="align-middle">
 
-                    <tr>
-                        <td><img class="mx-auto d-block img-thumbnail img-fluid" src="https://impult.ru/preview/r/456x456/upload/iblock/fa0/fa0206e6726d5e1e598aeb7015d29328.jpg" style="width:50%"></td>
-                        <td>Rega Planar 3 (RB-330, Exact) High Gloss black</td>
-                        <td>117*447*360</td>
-                        <td>136 000 р</td>
-                    </tr>
+                    <tbody class="align-middle">
 
-                    <tr>
-                        <td><img class="mx-auto d-block img-thumbnail img-fluid" src="https://impult.ru/preview/r/456x456/upload/iblock/cf1/cf159adb58a908cf97099db93833c363.jpg" style="width:50%"></td>
-                        <td>Music Hall MMF-7.3 Black</td>
-                        <td>140*464*337</td>
-                        <td>179 990 р</td>
-                    </tr>
+                            <tr>
+                                {% for ProductsDescriptionHiFi in allhifi %}
+                                <td><img class="mx-auto d-block img-thumbnail img-fluid" src="{{ProductsDescriptionHiFi.photo.url}}" style="width:50%"></td>
+                                <td>{{ProductsDescriptionHiFi.name}}</td>
+                                <td>117*447*360</td>
+                                <td>136 000 р</td>
+                                {% endfor %}
+                            </tr>
 
-                     <tr>
-                        <td><img class="mx-auto d-block img-thumbnail img-fluid" src="https://impult.ru/preview/r/456x456/upload/iblock/e3f/e3f40f99098ee72243e7f80bfa69d36d.jpg" style="width:50%"></td>
-                        <td>Audio Technica AT-LP120XUSB black</td>
-                        <td>141.6*452*352</td>
-                        <td>89 990 р</td>
-                    </tr>
-                </tbody>
+
+
+                    </tbody>
+
             </table>
             <ul class="pagination p-3 d-flex justify-content-center">
 				<li class="page-item"><a href="#" class="page-link"> Previous </a></li>
@@ -132,6 +131,7 @@
 				<li class="page-item"><a href="#" class="page-link"> 6 </a></li>
 				<li class="page-item"><a href="#" class="page-link"> Next </a></li>
             </ul>
+
         </div>
 
     </div>

@@ -17,6 +17,7 @@ class ProductsDescriptionVinyl(models.Model):
     class Meta:
         verbose_name = 'Виниловая пластинка'
         verbose_name_plural = 'Виниловые пластинки'
+        ordering = ['-create_date']
 
 class ProductsDescriptionHiFi(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4, null=False, blank=False, editable=False)
@@ -30,3 +31,5 @@ class ProductsDescriptionHiFi(models.Model):
     class Meta:
         verbose_name = 'Аудио Компонент'
         verbose_name_plural = 'Аудио Компоненты'
+
+
