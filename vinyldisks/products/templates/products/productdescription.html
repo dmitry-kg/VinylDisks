@@ -20,7 +20,7 @@
 		    <div id="vinyl" class="tab-pane active " >
 
                     <div class="row  col-sm-12 text-center ">
-                        {% for ProductsDescriptionVinyl in new_vinyls %}
+                        {% for ProductsDescriptionVinyl in paged_vinyls %}
                              <div class="col-sm-4 p-5 {% cycle 'bg-light' 'bg-dark' %} {% cycle 'text-dark' 'text-light' %} ">
 
                                     <h6 class="text-center mb-2 fw-bold h6 mt-3">Виниловая пластинка {{ ProductsDescriptionVinyl.artist_name}} / {{ ProductsDescriptionVinyl.album_name}}
@@ -75,16 +75,34 @@
 
 
 
-                <ul class="pagination p-3 d-flex justify-content-center">
-                    <li class="page-item"><a href="#" class="page-link"> Previous </a></li>
-                    <li class="page-item"><a href="#" class="page-link"> 1 </a></li>
-                    <li class="page-item"><a href="#" class="page-link"> 2 </a></li>
-                    <li class="page-item"><a href="#" class="page-link"> 3 </a></li>
-                    <li class="page-item active"><a href="#" class="page-link"> 4 </a></li>
-                    <li class="page-item"><a href="#" class="page-link"> 5 </a></li>
-                    <li class="page-item"><a href="#" class="page-link"> 6 </a></li>
-                    <li class="page-item"><a href="#" class="page-link"> Next </a></li>
-                </ul>
+<!--                <div class="pagination-box p-box-2 text-center">-->
+                    {% if paged_vinyls.has_other_pages %}
+                        <ul class="pagination p-3 d-flex justify-content-center">
+
+                            {% if paged_vinyls.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ paged_vinyls.previous_page_number }}" > Previous </a>
+                            </li>
+                            {% endif %}
+
+                            {% for i in paged_vinyls.paginator.page_range %}
+                                {% if paged_vinyls.number == i %}
+                                    <li class="page-item"><a class="page-link active" href="#" >{{ i }}</a></li>
+                                {% else %}
+                                    <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+                                {% endif %}
+
+                            {% endfor %}
+
+                            {% if paged_vinyls.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{ paged_vinyls.next_page_number }}" class="page-link"> Next </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    {% endif %}
+<!--                </div>-->
+
             </div>
 
 
