@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+  <div class="container py-5 h-100 rounded-3 my-3">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+<!--      <div class="col-md-8 col-lg-7 col-xl-6">-->
+<!--        <img src="{% static 'img/logos/logo.png' %}"-->
+<!--          class="img-fluid" alt="Phone image">-->
+<!--      </div>-->
+      <div class="bg-light rounded-3 col-md-7 col-lg-5 col-xl-5 offset-xl-1 pb-3 pt-3">
+        <h3 class="text-center  fw-bold h3 text-primary">Завести аккаунт</h3>
+        <form action="{% url 'register' %}" method="POST">
+          {% csrf_token %}
+
+          <!-- Login input -->
+              <div class="form-group form-box mb-4 ">
+
+                <input type="text" name="firstname" class="form-control form-control-lg" placeholder="Имя" required>
+
+
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input type="text" name="lastname" class="form-control form-control-lg"  placeholder="Фамилия" required/>
+
+              </div>
+
+              <div class="form-outline mb-4">
+                <input type="text" name="username" class="form-control form-control-lg" placeholder="Логин" required />
+
+              </div>
+
+              <div class="form-outline mb-4">
+                <input type="email" name="email" class="form-control form-control-lg" placeholder="E-mail" required />
+
+              </div>
+
+              <div class="form-outline mb-4">
+                <input type="password" name="password" class="form-control form-control-lg" placeholder="Пароль" required />
+
+              </div>
+
+              <div class="form-outline mb-4">
+                <input type="password" name="confirm_password" class="form-control form-control-lg" placeholder="Подтвердите Пароль" required />
+
+              </div>
+
+
+
+<!--              <div class="d-flex justify-content-around align-items-center mb-4">-->
+<!--                &lt;!&ndash; Checkbox &ndash;&gt;-->
+<!--                <div class="form-check">-->
+<!--                  <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />-->
+<!--                  <label class="form-check-label" for="form1Example3"> Запомнить меня </label>-->
+<!--                </div>-->
+<!--                <a href="#">Забыли пароль?</a>-->
+<!--              </div>-->
+
+              <!-- Submit button -->
+              <div class="d-flex justify-content-around align-items-center">
+                <button type="submit" class="btn btn-primary btn-lg btn-block ">Регистрация</button>
+              </div>
+              <div class="divider d-flex  justify-content-around align-items-center my-4">
+                <p class="text-center fw-bold mx-3 mb-0 text-muted">Или</p>
+              </div>
+
+              <a class="m-2 btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
+                role="button">
+                <i class="fab fa-facebook-f me-2"></i>Регистрация с Facebook
+              </a>
+              <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
+                role="button">
+                <i class="fab fa-twitter me-2"></i>Регистрация с Twitter</a>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

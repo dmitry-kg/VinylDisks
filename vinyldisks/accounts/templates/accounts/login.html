@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!--<div class="sub-banner overview-bgi">-->
+<!--    <div class="container breadcrumb-area">-->
+<!--        <div class="breadcrumb-areas">-->
+<!--            <h1>Login To Your Account</h1>-->
+<!--            <ul class="breadcrumbs">-->
+<!--                <li><a href="{% url 'main'%}">Home</a></li>-->
+<!--                <li class="active">Login</li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!-- Sub Banner end -->
+
+
+
+
+  <div class="container bg-light py-5 h-100 rounded-3 my-3">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="{% static 'img/logos/logo.png' %}"
+          class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <h3 class="text-center  fw-bold h3 text-primary">Войти в свой аккаунт</h3>
+        <form action="{% url 'login' %}" method="POST">
+          {% csrf_token %}
+
+          <!-- Login input -->
+              <div class="form-outline mb-4">
+                <input type="text" name="username" class="form-control form-control-lg" />
+                <label class="form-label" for="form1Example13">Введите свой логин</label>
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input type="password" name="password" class="form-control form-control-lg" />
+                <label class="form-label" for="form1Example23">Пароль</label>
+              </div>
+
+              <div class="d-flex justify-content-around align-items-center mb-4">
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                  <label class="form-check-label" for="form1Example3"> Запомнить меня </label>
+                </div>
+                <a href="#">Забыли пароль?</a>
+              </div>
+
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-lg btn-block">Войти</button>
+
+              <div class="divider d-flex align-items-center my-4">
+                <p class="text-center fw-bold mx-3 mb-0 text-muted">ИЛИ</p>
+              </div>
+
+              <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
+                role="button">
+                <i class="fab fa-facebook-f me-2"></i>Продолжить с Facebook
+              </a>
+              <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
+                role="button">
+                <i class="fab fa-twitter me-2"></i>Продолжить с Twitter</a>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+<!-- Contact section start -->
+<!--<div class="contact-section">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-4 mx-auto">-->
+<!--                <div class="form-section">-->
+<!--                    <div class="logo-2">-->
+<!--                        <a href="{% url 'main' %}">-->
+<!--                            <img src="{% static 'img/logos/logo.png' %}" alt="logo" style="width: 80px;" class=" d-block img-thumbnail mt-5 mx-auto">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <h3 class="text-center  fw-bold h3 text-primary">Sign into your account</h3>-->
+
+
+<!--                    <form class="p-3 bg-light was-validated rounded-3 my-3" >-->
+<!--                      &lt;!&ndash; Email input &ndash;&gt;-->
+
+<!--&lt;!&ndash;                      <div class="form-group form-box mb-4">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <input type="email" name="email" class="input-text" placeholder="Email Address" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <i class="flaticon-mail"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </div>&ndash;&gt;-->
+
+<!--                      <div class="form-outline mb-4">-->
+<!--                        <input type="email" id="form2Example1" class="form-control" />-->
+<!--                        <label class="form-label" for="form2Example1">Email address</label>-->
+<!--                      </div>-->
+
+<!--                      &lt;!&ndash; Password input &ndash;&gt;-->
+<!--                      <div class="form-outline mb-4">-->
+<!--                        <input type="password" id="form2Example2" class="form-control"  />-->
+<!--                        <label class="form-label" for="form2Example2">Password</label>-->
+<!--                      </div>-->
+
+<!--                      &lt;!&ndash; 2 column grid layout for inline styling &ndash;&gt;-->
+<!--                      <div class="row mb-4">-->
+<!--                        <div class="col d-flex justify-content-center">-->
+<!--                          &lt;!&ndash; Checkbox &ndash;&gt;-->
+<!--                          <div class="form-check">-->
+<!--                            <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />-->
+<!--                            <label class="form-check-label" for="form2Example31"> Remember me </label>-->
+<!--                          </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="col">-->
+<!--                          &lt;!&ndash; Simple link &ndash;&gt;-->
+<!--                          <a href="#!">Forgot password?</a>-->
+<!--                        </div>-->
+<!--                      </div>-->
+
+<!--                      &lt;!&ndash; Submit button &ndash;&gt;-->
+<!--                      <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>-->
+
+<!--                      &lt;!&ndash; Register buttons &ndash;&gt;-->
+<!--                      <div class="text-center">-->
+<!--                        <p>Not a member? <a href="#!">Register</a></p>-->
+<!--                        <p>or sign up with:</p>-->
+<!--                        <button type="button" class="btn btn-link btn-floating mx-1">-->
+<!--                          <i class="fab fa-facebook-f"></i>-->
+<!--                        </button>-->
+
+<!--                        <button type="button" class="btn btn-link btn-floating mx-1">-->
+<!--                          <i class="fab fa-google"></i>-->
+<!--                        </button>-->
+
+<!--                        <button type="button" class="btn btn-link btn-floating mx-1">-->
+<!--                          <i class="fab fa-twitter"></i>-->
+<!--                        </button>-->
+
+<!--                        <button type="button" class="btn btn-link btn-floating mx-1">-->
+<!--                          <i class="fab fa-github"></i>-->
+<!--                        </button>-->
+<!--                        <div class="extra-login clearfix">-->
+<!--                            <span>Or Login With</span>-->
+<!--                        </div>-->
+<!--                        <div class="clearfix"></div>-->
+
+<!--                        <div class="col-sm-12">-->
+<!--                            <a href="#" style="margin-right: 10px" >-->
+<!--                                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">-->
+<!--                                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>-->
+<!--                                   </svg>-->
+<!--                            </a>-->
+
+<!--                            <a href="https://instagram.com/winterBishkekCloses">-->
+<!--                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">-->
+<!--                                      <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>-->
+<!--                                   </svg>-->
+<!--                            </a>-->
+<!--                        </div>-->
+
+
+
+
+
+<!--&lt;!&ndash;                        <ul class="social-list">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <li><a href="#" class="facebook-bg"><i class="fa fa-facebook facebook-i"></i><span>Facebook</span></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <li><a href="#" class="google-bg"><i class="fa fa-google google-i"></i><span>Google</span></a></li>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                        </ul>&ndash;&gt;-->
+<!--                      </div>-->
+<!--                    </form>-->
+
+
+<!--                    <form action="#" method="GET">-->
+<!--                        <div class="form-group form-box">-->
+<!--                            <input type="email" name="email" class="input-text" placeholder="Email Address" required>-->
+<!--                            <i class="flaticon-mail"></i>-->
+<!--                        </div>-->
+<!--                        <div class="form-group form-box">-->
+<!--                            <input type="password" name="Password" class="input-text" placeholder="Password" required>-->
+<!--                            <i class="flaticon-lock"></i>-->
+<!--                        </div>-->
+<!--                        <div class="form-group mb-0 clearfix">-->
+<!--                            <button type="submit" class="btn-md btn-theme float-left">Login</button>-->
+<!--                        </div>-->
+<!--                        <div class="extra-login clearfix">-->
+<!--                            <span>Or Login With</span>-->
+<!--                        </div>-->
+<!--                        <div class="clearfix"></div>-->
+<!--                        <ul class="social-list">-->
+<!--                            <li><a href="#" class="facebook-bg"><i class="fa fa-facebook facebook-i"></i><span>Facebook</span></a></li>-->
+<!--                            <li><a href="#" class="google-bg"><i class="fa fa-google google-i"></i><span>Google</span></a></li>-->
+<!--                        </ul>-->
+<!--                    </form>-->
+<!--                    <p>Don't have an account? <a href="signup.html" class="thembo"> Register here</a></p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+<!--<section class="vh-100">-->
+
+<!--</section>-->
+
+<!-- Contact section end -->
+{% endblock %}

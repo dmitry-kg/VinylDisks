@@ -261,7 +261,7 @@ iframe{
 /*.production tr:hover{
             background-color: #eb46e2;
             color: white;
-            
+
         }*/
 
 .production th{
@@ -489,4 +489,12 @@ input[type="submit"]{
 .two img{
     float: right;
     margin: 10px;
+}
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
 }
