@@ -18,8 +18,8 @@
 <!-- Sub Banner end -->
 
 
-
-
+{% load socialaccount %}
+{% providers_media_js %}
   <div class="container bg-light py-5 h-100 rounded-3 my-3">
     <div class="row d-flex align-items-center justify-content-center h-100">
       <div class="col-md-8 col-lg-7 col-xl-6">
@@ -63,9 +63,9 @@
                 role="button">
                 <i class="fab fa-facebook-f me-2"></i>Продолжить с Facebook
               </a>
-              <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
+              <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="{% provider_login_url 'google' %}"
                 role="button">
-                <i class="fab fa-twitter me-2"></i>Продолжить с Twitter</a>
+                <i class="fab fa-google me-2"></i>Продолжить с Google</a>
 
         </form>
       </div>

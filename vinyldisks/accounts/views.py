@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth, messages
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -50,8 +51,18 @@ def register(request):
                     user.save()
                     auth.login(request, user)
                     messages.success(request, 'Вы успешно авторизовались')
-                    return redirect('productsdescription')
+                    return redirect('dashboard')
         else:
             return redirect('register')
     else:
         return render (request, 'accounts/register.html')
+
+
+@login_required
+def dashboard(request):
+    user_id = request.user.id
+
+
+
+
+    return render(request, 'accounts/dashboard.html')
