@@ -32,4 +32,3 @@ class ProductsDescriptionHiFi(models.Model):
         verbose_name = 'Аудио Компонент'
         verbose_name_plural = 'Аудио Компоненты'
 
-

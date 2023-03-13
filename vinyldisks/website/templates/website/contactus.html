@@ -50,10 +50,11 @@
      <div class="container mb-3">
            <h3 class="text-center mt-5 fw-bold h3">Обратная связь</h3>
         <div class="row">
-             <form class="bg-light was-validated rounded-3 my-3">
+             <form action="{% url 'inquiri' %}" method="POST" class="bg-light was-validated rounded-3 my-3">
+                 {% csrf_token %}
                   <div class="my-3">
                     <label for="name" class="form-label"> Имя: </label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Введите свое имя..." required>
+                    <input type="text" name="first_name" id="name" class="form-control" placeholder="Введите свое имя..." required>
                     <div class="valid-feedback">Успех.</div>
                     <div class="invalid-feedback">Пожалуйста заполните это поле.</div>
                   </div>
@@ -69,7 +70,7 @@
                   <div class="my-3">
 
                     <label  class="form-label">Выбор темы сообщения: </label>
-                    <select class="form-select">
+                    <select class="form-select" name="choice">
                         <option>Узнать адрес</option>
                         <option>Узнать о продукте</option>
                         <option>Узнать о компании</option>
@@ -80,12 +81,12 @@
 
                   <div class="my-3">
                     <label for="theme" class="form-label"> Тема сообщения: </label>
-                    <input type="text" name="theme" id="theme" class="form-control" placeholder="Введите тему сообщения...">
+                    <input type="text" name="theme" class="form-control" placeholder="Введите тему сообщения...">
                   </div>
 
                   <div class="my-3">
-                    <label class="form-label"> Текст обращения: </label>
-                    <textarea class="form-control" type="text" rows="5" placeholder="Введите текст обращения..."></textarea>
+                    <label for="text" class="form-label"> Текст обращения: </label>
+                    <textarea name="text" class="form-control" type="text" rows="5" placeholder="Введите текст обращения..."></textarea>
 
                   </div>
 
