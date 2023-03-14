@@ -12,19 +12,22 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
+from decouple import Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=#(737d496jh+=uhywn6v3=7&z49794wryat2dqz8swkg8*c*r'
+SECRET_KEY = config('SECRET_KEY')
+# 'django-insecure-=#(737d496jh+=uhywn6v3=7&z49794wryat2dqz8swkg8*c*r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -38,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'website',
     'products',
@@ -61,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'vinyldisks.urls'
@@ -90,10 +95,10 @@ WSGI_APPLICATION = 'vinyldisks.wsgi.application'
 DATABASES = {
      "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "vinyldisks",
-        "USER": "postgres",
-        "PASSWORD": "emp25dry",
-        "HOST": "dev.ingo.kg"
+        "NAME": config('DB_NAME'),
+        "USER": config('DB_USER'),
+        "PASSWORD": config('DB_PASSWORD'),
+        "HOST": config('DB_HOST'),
     }
 }
 
@@ -133,17 +138,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'vinyldisks/static')
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
-
-SITE_ID = 1
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorege'
 
 LOGIN_REDIRECT_URL = 'dashboard'
+SITE_ID = 1
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
