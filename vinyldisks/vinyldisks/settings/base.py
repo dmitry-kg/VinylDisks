@@ -145,7 +145,7 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorege'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 LOGIN_REDIRECT_URL = 'dashboard'
 SITE_ID = 1
