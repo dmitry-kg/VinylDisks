@@ -1,0 +1,500 @@
+/*Main*/
+body{
+    background-image: url("https://i0.wp.com/www.red-nuts.com/wp-content/uploads/2013/11/vinyl.jpg?fit=1500%2C1001&ssl=1");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    background-size: 100%;
+    /*font-size: 14px;*/
+    margin: auto;
+    width: 1200px;
+
+}
+
+/*Icons*/
+span{
+    color: orangered;
+    margin-left: 10px;
+}
+
+.biwhatsapp{
+    color: green;
+}
+
+
+.biinstagram{
+    color: mediumvioletred;
+}
+
+.bifacebook{
+    color: blue;
+}
+
+h1,h2,h3,h4,h5,h6{
+    color: orangered;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.sticky-menu{
+    text-align: center;
+    border-radius: 20px;
+    /*margin: 20px 0 20px 0;*/
+    background-color: orangered;
+    position: sticky;
+    top:0;
+}
+
+/*ul{*/
+/*    list-style-type: none;*/
+/*    margin: auto;*/
+/*    width: 500px;*/
+/*    overflow: hidden;*/
+/*    display: block;*/
+
+
+/*}*/
+a{
+    text-decoration: none;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 100px;
+    text-align: center;
+    font-size: 28px;
+}
+
+a:visited{
+			color: black;
+            font-size: 26px;
+
+		}
+a:hover{
+    color: orangered;
+    font-size: 30px;
+
+}
+
+p{
+    color: black;
+    font-family: 'Caveat', cursive;
+
+}
+#buyvinyl{
+    font-size: 24px;
+    text-align: right;
+
+}
+#buy{
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    margin-left: 10px;
+    padding: 3px;
+
+    /*margin-top: 15px;*/
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.btndrop{
+    border: 2px solid orangered;
+    padding: 2px;
+    font-size: 18px;
+    color: white;
+    min-width: 150px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.btndropus{
+    border: 2px solid orangered;
+    padding: 2px;
+    font-size: 18px;
+    color: white;
+    min-width: 150px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+
+.contentdrop{
+    display: none;
+    position: absolute;
+    background-color: #e8faef;
+    min-width: 150px;
+    border-radius: 10px;
+}
+
+.contentdrop a{
+    padding: 14px 18px;
+    color: black;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+
+}
+
+.contentdrop a:hover{
+            background-color: orangered;
+            border-radius: 10px;
+		}
+
+		.dropdown:hover .contentdrop{
+			display: block;
+		}
+
+		.dropdown:hover .btndropus{
+            border-radius: 10px;
+
+		}
+
+
+
+
+
+ul li{
+    display: inline-block;
+    border: 2px solid orangered;
+    border-radius: 10px;
+    margin: 5px;
+}
+li:hover{
+    background-color: white;
+}
+
+img{
+    /*float: right;*/
+    display: block;
+    width: 500px;
+}
+
+#nirvana{
+    margin: 10px 10px 10px 20px;
+    float: right;
+    width: 300px;
+}
+
+#vinylnirvana{
+/*    text-align: justify;*/
+    font-size: 18px;
+}
+.whywe{
+    border: 5px solid orangered;
+    border-radius: 50px;
+    padding: 20px;
+
+    display: block;
+    background-color: orangered;
+
+}
+
+.textcomment{
+    /*width: 100px;*/
+    float: left;
+    /*text-align: center;*/
+}
+.textinput{
+    width: 210px;
+    /*text-align: left;*/
+    float: left;
+}
+
+.comment{
+    margin-top: 150px;
+}
+.whywe td{
+    text-align: left ;
+    color: white;
+}
+
+iframe{
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    width: inherit;
+    margin-top: 50px;
+}
+
+.production{
+    border: 5px solid orangered;
+    padding: 10px;
+    margin: auto;
+    width: 900px;
+    display: block;
+    background-color: #9da8a0;
+}
+.production td{
+    text-align: center ;
+    color: black;
+    border: 1px solid gray;
+/*    border-collapse: collapse;*/
+    padding: 5px;
+/*    background-color: #9da8a0;*/
+    margin: auto;
+    width: 700px;
+
+
+}
+.production table{
+    background-color: #9da8a0;
+    border-collapse: collapse;
+
+}
+
+.production td:hover{
+
+			font-size: 25px;
+			color: white;
+
+}
+
+
+.production tr:nth-child(odd){
+			background-color: orangered;
+			color: white;
+}
+/*.production tr:hover{
+            background-color: #eb46e2;
+            color: white;
+
+        }*/
+
+.production th{
+    text-align: center ;
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 5px;
+    background-color: #49b346;
+    color: white;
+    margin: auto;
+    width: 700px;
+}
+
+
+
+/*AboutUS*/
+#boldquestions{
+    font-weight: bold;
+    /*margin: 20px;*/
+}
+
+#answercursive{
+    font-style: oblique;
+    margin-bottom: 20px;
+}
+.aboutus{
+    margin: 40px;
+    border: 5px solid orangered;
+    border-radius: 50px;
+    padding: 20px;
+    display: block;
+    background-color: azure;
+}
+
+ol li{
+    text-align: center;
+
+}
+
+/*ContactUs*/
+.contactUs{
+    /* border: 5px solid orangered;*/
+    /*border-radius: 50px;*/
+    /*padding: 20px;*/
+    /*margin: auto;*/
+    /*margin-top: 20px;*/
+    /*display: block;*/
+    /*background-color: orangered;*/
+    /*width: 800px;*/
+
+    /*border: 5px solid orangered;*/
+    border-radius: 50px;
+    padding:25px;
+    margin: auto;
+    width: 800px;
+    display: block;
+    background-color: orangered;
+
+
+
+}
+
+.contactUs td{
+    text-align: center ;
+    color: black;
+    /*border: 1px solid gray;*/
+    border-collapse: collapse;
+    padding: 5px;
+    /*background-color: #9da8a0;*/
+    /*margin: auto;*/
+    width: 600px;
+
+}
+.contactUs th{
+
+    /*color: white;*/
+    /*font-weight: bold;*/
+    /*margin: auto;*/
+    /*width: 600px;*/
+
+    /*text-align: center ;*/
+    /*border: 1px solid gray;*/
+    /*border-collapse: collapse;*/
+    padding: 5px;
+    /*background-color: #49b346;*/
+    color: white;
+    margin: auto;
+    width: 600px;
+}
+
+img.logosocial{
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+
+a.contactUrl{
+    font-size: 14px;
+
+}
+
+a.contactUrl:hover{
+    color: white;
+}
+
+.someinput{
+    margin-left: 20px;
+    border-radius: 5px;
+    /*padding: 3px;*/
+}
+/*.somesubmit{*/
+/*    background-color: #49b346;*/
+/*    margin-top: 20px;*/
+/*    padding: 10px;*/
+/*    color: white;*/
+
+/*}*/
+
+/*.test{*/
+/*    margin-top: 20px;*/
+/*    padding: 20px;*/
+/*    border-radius: 5px;*/
+/*    background-color: lightgray;*/
+/*    width: 600px;*/
+/*    font-size: inherit;*/
+/*}*/
+/*input[class="someinput"]{*/
+
+/*			width: 40%;*/
+/*			padding-left: 10px;*/
+/*			box-sizing: border-box;*/
+/*			border: 2px solid orangered;*/
+/*			-webkit-transition: width 0.4s ease-in-out;*/
+/*			transition: width 0.9s ease-in-out;*/
+/*}*/
+/*input[class="someinput"]:focus{*/
+/*			width: 100%;*/
+/*}*/
+
+.form{
+    position: relative;
+    bottom:0;
+    left:0;
+    height: 250px;
+    width: 250px;
+    /*border: 3px solid red;*/
+
+}
+
+.label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top:20px;
+    /*border: 2px solid green;*/
+
+
+}
+
+.inputlabel{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top:20px;
+    /*margin-left: 300px;.*/
+
+    /*height: 300px;*/
+    /*width: 250px;*/
+    /*border: 3px solid red;*/
+}
+label, input{
+			display: block;
+		}
+
+form{
+    background-color: lightgray;
+    margin-top: 50px;
+    padding: 30px;
+    width: 550px;
+    border-radius: 10px;
+}
+
+label{
+    margin-top: 12px;
+    /*padding-top: 22px;*/
+}
+
+input{
+    width: 80%;
+    padding: 5px 6px;
+    border-radius: 10px;
+    margin-top: 3px;
+}
+
+input[type]{
+
+    width: 60%;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border: 2px solid orangered;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.9s ease-in-out;
+}
+
+
+input[type]:focus{
+    width: 100%;
+}
+
+
+input[type="submit"]{
+    width: 100%;
+
+}
+
+
+.one img{
+		float: left;
+		margin: 10px;
+	}
+.two img{
+    float: right;
+    margin: 10px;
+}
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
